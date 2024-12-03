@@ -10,10 +10,10 @@ export const ContainerDefaultProps = {
   padding: 10
 };
 
-export const Container = ({background, padding = 10,margin = 10, children}) => {
+export const Container = ({background,boxShadow, padding = 10,margin = 10, children,className,style}) => {
     const { connectors: {connect, drag} } = useNode();
   return (
-    <Paper className="" ref={ ref => connect(drag(ref))} style={{margin: `${margin}px 10px`, background, padding: `${padding}px`}}>
+    <Paper className={className} ref={ ref => connect(drag(ref))} style={{margin: `${margin}px 10px`, backgroundColor: `${background}`, padding: `${padding}px`,boxShadow: `${'none'}`,...style}}>
       {children}
     </Paper>
   )

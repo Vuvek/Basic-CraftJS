@@ -6,6 +6,10 @@ import { Text } from '../components/user/Text';
 import { Container } from '../components/user/Container';
 import { Image } from '../components/user/Image';
 import SimpleSlider from '../components/user/Carousel';
+import ScrollingLogo from '../components/user/ScrollingLogo';
+import { Row, Rows } from '../components/user/Rows';
+import { Column, Columns } from '../components/user/Columns';
+import { ProductContainer, ProductContainerContent } from '../components/user/ProductContainer';
 
 const RenderPage = () => {
   const [layoutData, setLayoutData] = useState(null);
@@ -20,7 +24,7 @@ const RenderPage = () => {
   return (
     <div>
       {layoutData ? (
-        <Editor enabled={false} resolver={{ Card, Button, Text, Container, CardTop, CardBottom, Image,SimpleSlider}}>
+        <Editor enabled={false} resolver={{Row,Column, Rows,Columns, Card, Button, Text, Container, CardTop, CardBottom, Image,SimpleSlider,ScrollingLogo,ProductContainer,ProductContainerContent}}>
           <Frame data={layoutData} />
         </Editor>
       ) : (

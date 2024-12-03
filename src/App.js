@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Typography,
-  Paper,
-  Grid,
-} from "@material-ui/core";
+import { Typography, Paper, Grid } from "@material-ui/core";
 
 import { Toolbox } from "./components/Toolbox";
 import { SettingsPanel } from "./components/SettingsPanel";
@@ -16,6 +12,10 @@ import { Topbar } from "./components/Topbar";
 import { Image } from "./components/user/Image";
 import SimpleSlider from "./components/user/Carousel";
 import { ResizableContainer } from "./components/user/ResizableContainer";
+import ScrollingLogo from "./components/user/ScrollingLogo";
+import { Row, Rows } from "./components/user/Rows";
+import { Column, Columns } from "./components/user/Columns";
+import { ProductContainer, ProductContainerContent } from "./components/user/ProductContainer";
 
 export default function App() {
   return (
@@ -25,6 +25,10 @@ export default function App() {
       </Typography>
       <Editor
         resolver={{
+          Row,
+          Column,
+          Rows,
+          Columns,
           Card,
           Button,
           Text,
@@ -33,7 +37,10 @@ export default function App() {
           CardBottom,
           Image,
           SimpleSlider,
-          ResizableContainer
+          ScrollingLogo,
+          ResizableContainer,
+          ProductContainer,
+          ProductContainerContent,
         }}
       >
         <Topbar />
@@ -50,8 +57,10 @@ export default function App() {
           <Grid item xs={12} md={6}>
             <Paper elevation={3} className="p-4">
               <Frame>
-                <Element is={Container} padding={5} background="#eee" canvas>
-                  <Card />
+                <Element is={Container} padding={5} background="" canvas>
+                  {/* <Card /> */}
+                  <SimpleSlider />
+                  <ScrollingLogo />
                   {/* <Button size="small" variant="outlined">
                     Click
                   </Button>
@@ -75,4 +84,3 @@ export default function App() {
     </div>
   );
 }
-

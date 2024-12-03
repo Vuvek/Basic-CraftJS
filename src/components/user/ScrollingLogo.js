@@ -1,14 +1,14 @@
 import React from "react";
 import Slider from "react-slick";
 import { Image } from "./Image";
-import {
-  CarouselDefaultProps,
-  CarouselSettings,
-} from "../settings/CarouselSettings";
 import { Container } from "./Container";
 import { useNode } from "@craftjs/core";
+import {
+  ScrollingLogoDefaultProps,
+  ScrollingLogoSettings,
+} from "../settings/ScrollingLogoSetting";
 
-export default function SimpleSlider(props) {
+export default function ScrollingLogo(props) {
   const { slidesToShow, bannerArr, showArrows } = props;
 
   const {
@@ -25,36 +25,51 @@ export default function SimpleSlider(props) {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+
   return (
-    <Container ref={(ref) => connect(drag(ref))} canvas>
-      <Slider {...settings}>
-        {bannerArr &&
-          bannerArr.map((banner, index) => (
-            <div className="relative">
-              <Image
-                id={`slide-${index}`}
-                key={banner.image}
-                src={banner.image}
-                canvas
-              />
-              <div class="flex flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                {banner.title && <div class="font-bold text-lg">Slider1</div>}
-                {banner.description && (
-                  <div class="font-bold text-sm">Description</div>
-                )}
-                {banner.buttonText && <div className="">Slider Button</div>}
+    <div className="max-w-sm sm:max-w-xl lg:max-w-6xl mx-auto text-center">
+      <Container boxShadow={'none'} ref={(ref) => connect(drag(ref))} canvas>
+        <div class="w-full">
+          <div
+            class=" text-[18px] sm:text-[24px] lg:text-[42px] font-bold leading-[23px] sm:leading-[36px] lg:leading-[52px] text-center mb-[17px] sm:mb-[19px] lg:mb-[20px]"
+            id="Headline"
+          >
+            <h2
+              style={{ color: "#000000" }}
+              class=" text-[18px] sm:text-[24px] lg:text-[42px] font-bold leading-[23px] sm:leading-[36px] lg:leading-[52px] text-center mb-[17px] sm:mb-[19px] lg:mb-[20px]"
+            >
+              Shop By Brand
+            </h2>
+          </div>
+        </div>
+        <Slider {...settings}>
+          {bannerArr &&
+            bannerArr.map((banner, index) => (
+              <div className="relative" key={banner.image}>
+                <Image
+                  id={`slide-${index}`}
+                  src={banner.image}
+                  canvas
+                />
+                <div class="flex flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  {banner.title && <div class="font-bold text-lg">Slider1</div>}
+                  {banner.description && (
+                    <div class="font-bold text-sm">Description</div>
+                  )}
+                  {banner.buttonText && <div className="">Slider Button</div>}
+                </div>
               </div>
-            </div>
-          ))}
-      </Slider>
-    </Container>
+            ))}
+        </Slider>
+      </Container>
+    </div>
   );
 }
 
-SimpleSlider.craft = {
-  props: CarouselDefaultProps,
+ScrollingLogo.craft = {
+  props: ScrollingLogoDefaultProps,
   related: {
-    settings: CarouselSettings,
+    settings: ScrollingLogoSettings,
   },
 };
 

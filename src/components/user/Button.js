@@ -8,6 +8,8 @@ import {
   FormControlLabel,
 } from "@material-ui/core";
 import { useNode } from "@craftjs/core";
+import { Label } from "../ui/form/Label";
+import { TextInput } from "../ui/form/TextInput";
 
 export const Button = ({ size, variant, color, children,text }) => {
   const {
@@ -35,6 +37,15 @@ const ButtonSettings = () => {
 
   return (
     <div>
+      <Label label="Button Text">
+        <TextInput
+          type="text"
+          defaultValue={props.text}
+          onChange={(e) => {
+            setProp((props) => (props.text = e.target.value));
+          }}
+        />
+      </Label>
       <FormControl size="small" component="fieldset">
         <FormLabel component="legend">Size</FormLabel>
         <RadioGroup

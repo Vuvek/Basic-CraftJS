@@ -6,24 +6,15 @@ import { Button as MaterialButton, Paper } from "@material-ui/core";
 import { Add, Delete, Edit } from "@material-ui/icons";
 import { useState } from "react";
 
-const bannerArray = [
-  {
-    id: 1,
-    title: "",
-    description: "",
-    buttonText: "",
-    image:
-      "https://redefinecommerce.blob.core.windows.net/mozarchy/store/5/images/banner1.png",
-  },
-];
+const bannerArray = [];
 
-export const CarouselDefaultProps = {
+export const ScrollingLogoDefaultProps = {
   slidesToShow: 1,
-  showArrows: true,
+  showArrows: false,
   bannerArr: bannerArray,
 };
 
-export const CarouselSettings = () => {
+export const ScrollingLogoSettings = () => {
   const [editIndex, setEditIndex] = useState(null);
   const [addOrEdit, setAddorEdit] = useState(false); // controls if we are adding or editing a slide
 
@@ -245,6 +236,7 @@ export const CarouselSettings = () => {
                           />
                         </div>
                       )}
+
                       {/* Button to add new slide */}
                       {!addOrEdit && editIndex === null && (
                         <div className="mt-4 flex items-center">
@@ -284,7 +276,3 @@ export const CarouselSettings = () => {
     </>
   );
 };
-
-
-
-
