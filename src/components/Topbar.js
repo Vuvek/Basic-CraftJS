@@ -142,6 +142,16 @@ export const Topbar = () => {
             >
               Preview
             </MaterialButton>
+            <MaterialButton
+              variant="outlined"
+              color="primary"
+              onClick={() => {
+                localStorage.removeItem("pageData");
+                navigate(0)
+              }}
+            >
+              Create New Page
+            </MaterialButton>
           </DialogActions>
          
         </Grid>
